@@ -23,7 +23,7 @@ $P(c|d) ∝ P(c) * ∏ P(w|c)^count(w,d)$
 
 $P(w|c)$ 使用拉普拉斯平滑估计：  
 $P(w|c) = (count(w,c) + α) / (∑ count(w',c) + α|V|)$  
-α是平滑参数(通常α=1)，|V|是词汇表大小
+$α$是平滑参数(通常$α=1$)，$|V|$是词汇表大小
 
 ## 数据处理流程
 
@@ -59,9 +59,9 @@ $P(w|c) = (count(w,c) + α) / (∑ count(w',c) + α|V|)$
 ### TF-IDF特征加权
 数学表达：
 词频-逆文档频率：$tfidf(w,d) = tf(w,d) * log(N/(df(w)+1))$       
-tf(w,d)：词w在文档d中的频率   
-df(w)：包含词w的文档数  
-N：总文档数   
+$tf(w,d)$：词w在文档d中的频率   
+$df(w)$：包含词w的文档数  
+$N$：总文档数   
 文档表示为TF-IDF向量：$X = [tfidf(w1,d), tfidf(w2,d), ..., tfidf(wN,d)]$
 
 特点：
@@ -89,8 +89,3 @@ N：总文档数
 TF-IDF模式：   
 ```from sklearn.feature_extraction.text import TfidfVectorizer```   
 ```vectorizer = TfidfVectorizer(max_features=1000)  # 选择TF-IDF最高的1000词``` 
-
-切换时需要注意：   
-两种vectorizer的接口基本一致，可以直接替换   
-可能需要调整特征数量参数(max_features)   
-TF-IDF模式可能需要更多的数据预处理
